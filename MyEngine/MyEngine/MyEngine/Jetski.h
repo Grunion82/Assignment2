@@ -17,7 +17,7 @@ namespace scene {
 		~Jetski();
 
 		bool Init() override;
-		void Update() override;
+		void Update(int x, int y) override;
 		void Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const override;
 		bool Shutdown() override;
 

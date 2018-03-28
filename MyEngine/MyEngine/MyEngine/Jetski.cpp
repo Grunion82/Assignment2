@@ -26,9 +26,9 @@ namespace scene {
 		return true;
 	}
 
-	void Jetski::Update() {
-		imgRect->x += 1;
-		imgRect->y += 1;
+	void Jetski::Update(int x, int y) {
+		imgRect->x += x;
+		imgRect->y += y;
 	}
 
 	void Jetski::Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const {

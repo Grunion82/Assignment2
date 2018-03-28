@@ -21,9 +21,27 @@ namespace scene {
 	}
 
 	void Level1::Update() {
+		int x = 0, y = 0;
+
+		if (static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>())->LeftRequested()) {
+			x = -1;
+		}
+		
+		if (static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>())->RightRequested()) {
+			x = 1;
+		}
+
+		if (static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>())->UpRequested()) {
+			y = -1;
+		}
+
+		if (static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>())->DownRequested()) {
+			y = 1;
+		}
+
 
 		for (GameObject* go : gameObjects) {
-			go->Update();
+			go->Update(x, y);
 		}
 	}
 

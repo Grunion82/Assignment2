@@ -15,7 +15,7 @@ namespace scene {
 		return true;
 	}
 
-	void GameObject::Update() {
+	void GameObject::Update(int x, int y) {
 
 	}
 

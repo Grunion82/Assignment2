@@ -12,7 +12,7 @@ namespace scene {
 		virtual ~GameObject();
 
 		virtual bool Init();
-		virtual void Update();
+		virtual void Update(int x, int y);
 		virtual void Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const;
 		virtual bool Shutdown();
 
