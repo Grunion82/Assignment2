@@ -81,7 +81,7 @@ StyleCopReport.xml
 *.scc
 *.tlog
 *.idb
-MyEngine/MyEngine/Debug/Sandbox.exe
+.exe
 MyEngine/MyEngine/Debug/MyEngine.lib
 
 # Chutzpah Test files
