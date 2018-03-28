@@ -31,6 +31,14 @@ namespace core {
 				case SDLK_ESCAPE:
 					quitRequested = true;
 					break;
+				case SDLK_w: //Make image move up
+					break;
+				case SDLK_a: //Make image move left
+					break;
+				case SDLK_s: //Make image move down
+					break;
+				case SDLK_d: //Make image move right
+					break;
 				default:
 					break;
 				}
