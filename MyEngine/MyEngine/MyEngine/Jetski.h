@@ -10,7 +10,7 @@ namespace scene {
 	{
 	private:
 		SDL_Surface* image;
-		SDL_Rect imgRect;
+		SDL_Rect* imgRect;
 
 	public:
 		Jetski();

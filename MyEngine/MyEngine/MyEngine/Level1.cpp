@@ -32,6 +32,7 @@ namespace scene {
 		SDL_Surface* surfaceToDrawTo = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getSurface();
 		SDL_Window* windowToUpdate = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWindow();
 
+		//Have all the objects 
 		for (GameObject* go : gameObjects) {
 			go->Draw(surfaceToDrawTo, windowToUpdate);
 		}
