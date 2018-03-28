@@ -23,22 +23,23 @@ namespace scene {
 	void Level1::Update() {
 		int x = 0, y = 0;
 
-		if (static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>())->LeftRequested()) {
+		core::InputSystem* inputSystem = static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>());
+
+		if (inputSystem->LeftRequested()) {
 			x = -1;
 		}
 		
-		if (static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>())->RightRequested()) {
+		if (inputSystem->RightRequested()) {
 			x = 1;
 		}
 
-		if (static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>())->UpRequested()) {
+		if (inputSystem->UpRequested()) {
 			y = -1;
 		}
 
-		if (static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>())->DownRequested()) {
+		if (inputSystem->DownRequested()) {
 			y = 1;
 		}
-
 
 		for (GameObject* go : gameObjects) {
 			go->Update(x, y);
@@ -55,7 +56,7 @@ namespace scene {
 			go->Draw(surfaceToDrawTo, windowToUpdate);
 		}
 
-		SDL_UpdateWindowSurface(windowToUpdate);
+		//SDL_UpdateWindowSurface(windowToUpdate);
 	}
 
 	bool Level1::Shutdown() {

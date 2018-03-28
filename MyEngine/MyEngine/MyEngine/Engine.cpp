@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "InputSystem.h"
+#include "Window.h"
 
 namespace core {
 	Engine::Engine(scene::Scene* s) : isRunning(false) { //Initializing this way avoids doubley initializing variables (calling constructor)
@@ -45,6 +46,7 @@ namespace core {
 		for (Manager* man : managers) {
 			man->Draw();
 		}
+		SDL_UpdateWindowSurface(static_cast<Window*>(SystemManager::getInstance()->getSystem<Window>())->getWindow());
 	}
 
 	int Engine::Shutdown() {

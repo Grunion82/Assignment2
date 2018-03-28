@@ -4,7 +4,8 @@
 #include <iostream>
 
 namespace core {
-	InputSystem::InputSystem() : System(SystemType::INPUT),  quitRequested(false) {
+	InputSystem::InputSystem() : System(SystemType::INPUT),  quitRequested(false), upRequested(false), downRequested(false),
+		leftRequested(false), rightRequested(false) {
 		
 	}
 
