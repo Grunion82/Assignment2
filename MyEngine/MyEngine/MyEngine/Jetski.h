@@ -18,7 +18,7 @@ namespace scene {
 
 		bool Init() override;
 		void Update() override;
-		void Draw() const override;
+		void Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const override;
 		bool Shutdown() override;
 
 		SDL_Surface* getImage();

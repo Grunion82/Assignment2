@@ -2,6 +2,8 @@
 #define GAMEOBJECT_H
 
 
+#include "InputSystem.h"
+#include "Window.h"
 
 namespace scene {
 	class GameObject {
@@ -11,7 +13,7 @@ namespace scene {
 
 		virtual bool Init();
 		virtual void Update();
-		virtual void Draw() const;
+		virtual void Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const;
 		virtual bool Shutdown();
 	};
 }

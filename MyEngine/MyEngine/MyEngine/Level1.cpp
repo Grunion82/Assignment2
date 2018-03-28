@@ -1,5 +1,7 @@
 #include "Level1.h"
 #include "Jetski.h"
+#include "SystemManager.h"
+#include "Window.h"
 
 namespace scene {
 	Level1::Level1() {
@@ -25,9 +27,15 @@ namespace scene {
 	}
 
 	void Level1::Draw() const {
+		//Have the scene/level create the surfaceToDrawTo and windowToUpdate variables so that each game object doesn't have to create new ones independently
+		SDL_Surface* surfaceToDrawTo = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getSurface();
+		SDL_Window* windowToUpdate = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWindow();
+
 		for (GameObject* go : gameObjects) {
-			go->Draw();
+			go->Draw(surfaceToDrawTo, windowToUpdate);
 		}
+
+		SDL_UpdateWindowSurface(windowToUpdate);
 	}
 
 	bool Level1::Shutdown() {

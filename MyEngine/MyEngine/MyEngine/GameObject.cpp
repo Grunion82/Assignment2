@@ -19,7 +19,7 @@ namespace scene {
 
 	}
 
-	void GameObject::Draw() const {
+	void GameObject::Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const {
 
 	}
 
