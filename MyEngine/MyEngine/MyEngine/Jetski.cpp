@@ -26,7 +26,6 @@ namespace scene {
 	}
 
 	void Jetski::Update() {
-
 	}
 
 	void Jetski::Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const {

@@ -21,6 +21,7 @@ namespace scene {
 	}
 
 	void Level1::Update() {
+
 		for (GameObject* go : gameObjects) {
 			go->Update();
 		}
@@ -33,8 +34,6 @@ namespace scene {
 
 		for (GameObject* go : gameObjects) {
 			go->Draw(surfaceToDrawTo, windowToUpdate);
-
-			//SDL_BlitSurface(go->getImage(), NULL, surfaceToDrawTo, &go->getRect());
 		}
 
 		SDL_UpdateWindowSurface(windowToUpdate);

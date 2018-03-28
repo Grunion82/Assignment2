@@ -32,17 +32,39 @@ namespace core {
 					quitRequested = true;
 					break;
 				case SDLK_w: //Make image move up
+					upRequested = true;
 					break;
 				case SDLK_a: //Make image move left
+					leftRequested = true;
 					break;
 				case SDLK_s: //Make image move down
+					downRequested = true;
 					break;
 				case SDLK_d: //Make image move right
+					rightRequested = true;
 					break;
 				default:
 					break;
 				}
-				break;
+				break; 
+			case SDL_KEYUP:
+					switch (e.key.keysym.sym) {
+					case SDLK_w: //Make image move up
+						upRequested = false;
+						break;
+					case SDLK_a: //Make image move left
+						leftRequested = false;
+						break;
+					case SDLK_s: //Make image move down
+						downRequested = false;
+						break;
+					case SDLK_d: //Make image move right
+						rightRequested = false;
+						break;
+					default:
+						break;
+					}
+					break;
 			default:
 				break;
 			}
