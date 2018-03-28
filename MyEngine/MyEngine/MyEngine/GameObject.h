@@ -15,6 +15,9 @@ namespace scene {
 		virtual void Update();
 		virtual void Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const;
 		virtual bool Shutdown();
+
+		virtual SDL_Surface* getImage() = 0;
+		virtual SDL_Rect getRect() = 0;
 	};
 }
 #endif // GAMEOBJECT_H

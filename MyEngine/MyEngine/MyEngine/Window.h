@@ -4,8 +4,8 @@
 #define WINDOW_INIT_ERROR		false
 #define WINDOW_SHUTDOWN_ERROR	false
 
-#define WINDOW_SCREEN_WIDTH		680
-#define WINDOW_SCREEN_HEIGHT	400
+#define WINDOW_SCREEN_WIDTH		1200
+#define WINDOW_SCREEN_HEIGHT	600
 
 #include <SDL.h>
 

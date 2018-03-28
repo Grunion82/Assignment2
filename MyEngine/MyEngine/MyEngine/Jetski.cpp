@@ -18,8 +18,9 @@ namespace scene {
 		imgRect.h = image->h;
 		imgRect.w = image->w;
 
-		imgRect.x = 0;
-		imgRect.y = 0;	
+		//Have the image show up with the origin in the middle
+		imgRect.x = 0 - (imgRect.w / 2);
+		imgRect.y = 0 - (imgRect.h / 2);
 
 		return true;
 	}
