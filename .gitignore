@@ -81,7 +81,7 @@ StyleCopReport.xml
 *.scc
 *.tlog
 *.idb
-.exe
+*.exe
 MyEngine/MyEngine/Debug/MyEngine.lib
 
 # Chutzpah Test files
