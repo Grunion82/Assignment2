@@ -49,16 +49,16 @@ namespace core {
 				break; 
 			case SDL_KEYUP:
 					switch (e.key.keysym.sym) {
-					case SDLK_w: //Make image move up
+					case SDLK_w: //Make image stop moving up
 						upRequested = false;
 						break;
-					case SDLK_a: //Make image move left
+					case SDLK_a: //Make image stop moving left
 						leftRequested = false;
 						break;
-					case SDLK_s: //Make image move down
+					case SDLK_s: //Make image stop moving down
 						downRequested = false;
 						break;
-					case SDLK_d: //Make image move right
+					case SDLK_d: //Make image stop moving right
 						rightRequested = false;
 						break;
 					default:
