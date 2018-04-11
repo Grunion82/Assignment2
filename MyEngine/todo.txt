@@ -1,0 +1,23 @@
+Todo:
+
+Make enemy class
+-Simple box collider
+-Shoots bullets at a randomized rate between fixed values
+-Moves with a constant velocity
+-Teleports off screen when 'destroyed'
+-Teleports back on screen when 'spawned'
+
+Make enemy spawn class
+-Spawns lines on enemies and gives them fixed velocities
+-Does this in random directions
+
+Make bullet class
+-Fixed velocity when fired
+-Teleports off screen when 'destroyed'
+-Teleports back on screen when 'spawned'
+-Simple box collider
+
+Figure out how to put text to screen
+
+Figure out how to draw things to the top and left of screen
+
