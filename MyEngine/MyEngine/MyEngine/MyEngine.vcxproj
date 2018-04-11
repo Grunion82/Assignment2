@@ -153,8 +153,6 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="InputSystem.h" />
-    <ClInclude Include="Jetski.h" />
-    <ClInclude Include="Level1.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
@@ -166,8 +164,6 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputSystem.cpp" />
-    <ClCompile Include="Jetski.cpp" />
-    <ClCompile Include="Level1.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />

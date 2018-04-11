@@ -29,6 +29,8 @@ namespace core {
 			}
 			return m_instance;
 		}
+
+		void push_back(scene::Scene* s);
 	};
 }
 

@@ -1,7 +1,6 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
-
 #include "InputSystem.h"
 #include "Window.h"
 
@@ -12,8 +11,8 @@ namespace scene {
 		virtual ~GameObject();
 
 		virtual bool Init();
-		virtual void Update(int x, int y);
-		virtual void Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const;
+		virtual void Update();
+		virtual void Draw() const;
 		virtual bool Shutdown();
 
 		virtual SDL_Surface* getImage() = 0;

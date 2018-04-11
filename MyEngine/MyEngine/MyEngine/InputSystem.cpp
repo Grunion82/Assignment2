@@ -4,8 +4,7 @@
 #include <iostream>
 
 namespace core {
-	InputSystem::InputSystem() : System(SystemType::INPUT),  quitRequested(false), upRequested(false), downRequested(false),
-		leftRequested(false), rightRequested(false) {
+	InputSystem::InputSystem() : System(SystemType::INPUT),  quitRequested(false) {
 		
 	}
 
@@ -28,43 +27,12 @@ namespace core {
 				quitRequested = true;
 				break;
 			case SDL_KEYDOWN:
-				switch (e.key.keysym.sym) {
-				case SDLK_ESCAPE:
-					quitRequested = true;
-					break;
-				case SDLK_w: //Make image move up
-					upRequested = true;
-					break;
-				case SDLK_a: //Make image move left
-					leftRequested = true;
-					break;
-				case SDLK_s: //Make image move down
-					downRequested = true;
-					break;
-				case SDLK_d: //Make image move right
-					rightRequested = true;
-					break;
-				default:
-					break;
-				}
+				//Adds the pressed button to a map, sets value at that key to true
+				keys[e.key.keysym.sym] = true;
 				break; 
 			case SDL_KEYUP:
-					switch (e.key.keysym.sym) {
-					case SDLK_w: //Make image stop moving up
-						upRequested = false;
-						break;
-					case SDLK_a: //Make image stop moving left
-						leftRequested = false;
-						break;
-					case SDLK_s: //Make image stop moving down
-						downRequested = false;
-						break;
-					case SDLK_d: //Make image stop moving right
-						rightRequested = false;
-						break;
-					default:
-						break;
-					}
+				//Gets the passed button key, sets value to false
+				keys[e.key.keysym.sym] = false;
 					break;
 			default:
 				break;
@@ -79,5 +47,17 @@ namespace core {
 	bool InputSystem::Shutdown() {
 
 		return true;
+	}
+
+	bool InputSystem::isKeyDown(unsigned int key) {
+		//Finds the pressed key's key and adds to map
+		auto pressed = keys.find(key);
+
+		//If Key exists, return it
+		if (pressed != keys.end()) {
+			return keys[key];
+		}
+
+		return false;
 	}
 }

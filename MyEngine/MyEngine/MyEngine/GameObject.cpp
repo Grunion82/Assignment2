@@ -15,11 +15,11 @@ namespace scene {
 		return true;
 	}
 
-	void GameObject::Update(int x, int y) {
+	void GameObject::Update() {
 
 	}
 
-	void GameObject::Draw(SDL_Surface* surfaceToDrawTo, SDL_Window* windowToUpdate) const {
+	void GameObject::Draw() const {
 
 	}
 

@@ -1,13 +1,19 @@
 #ifndef INPUTSYSTEM_H
 #define INPUTSYSTEM_H
 
+#include <map>
+
 #include "System.h"
 
 namespace core {
 	class InputSystem : public System
 	{
 	private:
-		bool quitRequested, upRequested, leftRequested, downRequested, rightRequested;
+		bool quitRequested;
+
+		//Map for holding key's and if they are pressed or not (true/false)
+		std::map<unsigned int, bool> keys;
+
 	public:
 		InputSystem();
 		~InputSystem();
@@ -19,10 +25,8 @@ namespace core {
 
 		inline bool QuitRequested() const { return quitRequested; }
 
-		inline bool UpRequested() const { return upRequested; }
-		inline bool LeftRequested() const { return leftRequested; }
-		inline bool DownRequested() const { return downRequested; }
-		inline bool RightRequested() const { return rightRequested; }
+		//Checks for a key press
+		bool isKeyDown(unsigned int key);
 	};
 }
 

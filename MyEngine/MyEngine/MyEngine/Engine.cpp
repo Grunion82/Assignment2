@@ -6,6 +6,7 @@ namespace core {
 	Engine::Engine(scene::Scene* s) : isRunning(false) { //Initializing this way avoids doubley initializing variables (calling constructor)
 		managers.push_back(SystemManager::getInstance());
 		managers.push_back(SceneManager::getInstance());
+		static_cast<SceneManager*>(SceneManager::getInstance())->push_back(s);
 	}
 
 	Engine::~Engine() {
@@ -22,9 +23,7 @@ namespace core {
 		return 0;
 	}
 
-	int Engine::Run() {
-
-		
+	int Engine::Run() {	
 
 		while (!isRunning) {
 			Update();
@@ -39,7 +38,7 @@ namespace core {
 			man->Update();
 		}
 
-		isRunning = static_cast<SystemManager*>(SystemManager::getInstance())->getSystem<InputSystem>()->QuitRequested();
+		isRunning = static_cast<SystemManager*>(SystemManager::getInstance())->getSystem<InputSystem>()->isKeyDown(SDLK_ESCAPE);
 	}
 
 	void Engine::Draw() const {

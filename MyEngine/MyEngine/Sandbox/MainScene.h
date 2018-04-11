@@ -3,7 +3,16 @@
 
 #include <Scene.h>
 
-class MainScene : public scene::Scene {
+namespace scene {
+	class GameObject;
+}
+
+class MainScene : public scene::Scene 
+{
+private: 
+	//Vector of GameObjects in the scene
+	std::vector<scene::GameObject*> gameObjects;
+
 public:
 	MainScene();
 	~MainScene();

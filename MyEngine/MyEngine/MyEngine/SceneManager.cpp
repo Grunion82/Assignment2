@@ -1,11 +1,10 @@
 #include "SceneManager.h"
-#include "Level1.h"
 
 namespace core {
 	SceneManager* SceneManager::m_instance = nullptr;
 
 	SceneManager::SceneManager() {
-		scenes.push_back(new scene::Level1());
+		//scenes.push_back(new scene::Level1());
 	}
 
 
@@ -41,5 +40,9 @@ namespace core {
 			sce = nullptr;
 		}
 		return true;
+	}
+
+	void SceneManager::push_back(scene::Scene* s) {
+		scenes.push_back(s);
 	}
 }
