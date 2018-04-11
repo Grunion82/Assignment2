@@ -21,3 +21,8 @@ Figure out how to put text to screen
 
 Figure out how to draw things to the top and left of screen
 
+Player has 3 lives
+
+Player has to survive 2 min
+
+Reset function
