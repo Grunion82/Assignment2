@@ -4,7 +4,7 @@ namespace core {
 	SceneManager* SceneManager::m_instance = nullptr;
 
 	SceneManager::SceneManager() {
-		//scenes.push_back(new scene::Level1());
+
 	}
 
 
