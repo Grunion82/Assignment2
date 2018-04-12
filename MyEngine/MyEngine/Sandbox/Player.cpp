@@ -1,6 +1,7 @@
-#include "Player.h"
 #include <SystemManager.h>
+#include "Player.h"
 
+#include "Bullet.h"
 
 Player::Player()
 {
@@ -22,8 +23,8 @@ bool Player::Init() {
 	imgRect->w = image->w;
 
 	//Have the image show up with the origin in the middle
-	imgRect->x = 0 - (imgRect->w / 2);
-	imgRect->y = 0 - (imgRect->h / 2);
+	imgRect->x = (static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWidth() / 2) - imgRect->w;
+	imgRect->y = 600 - imgRect->h;
 
 	lives = 3;
 
@@ -47,15 +48,19 @@ void Player::Update() {
 		x = 1;
 	}
 
+	//Space bar shoots bullet
+	//if (inputSystem->isKeyDown(SDLK_SPACE)) {}
+
+	///Disabled Up and Down movement
 	//Moves up
-	if (inputSystem->isKeyDown(SDLK_w)) {
+	/*if (inputSystem->isKeyDown(SDLK_w)) {
 		y = -1;
 	}
 
 	//Moves down
 	if (inputSystem->isKeyDown(SDLK_s)) {
 		y = 1;
-	}
+	}*/
 
 	//Update Coordinates
 	imgRect->x += x;
@@ -83,4 +88,14 @@ SDL_Surface* Player::getImage() {
 SDL_Rect Player::getRect() {
 
 	return *imgRect;
+}
+
+Bullet* Player::shoot() {
+
+	//Instansiates a new player bullet
+	Bullet* b = new Bullet(false, imgRect->x + imgRect->w / 2, imgRect->y, true);
+	b->Init();
+
+	return b;
+
 }

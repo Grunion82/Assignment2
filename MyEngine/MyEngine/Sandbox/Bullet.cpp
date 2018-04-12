@@ -2,8 +2,8 @@
 #include <SystemManager.h>
 
 
-
-Bullet::Bullet(bool decider, int x_, int y_, bool onScreen) : isEnemyBullet(decider), x(x_), y(y_), isOnscreen(false)
+//Sets isOnscreen to true for testing bullet spawning
+Bullet::Bullet(bool decider, int x_, int y_, bool onScreen) : isEnemyBullet(decider), x(x_), y(y_), isOnscreen(true)
 {
 }
 
@@ -30,9 +30,9 @@ bool Bullet::Init() {
 	imgRect->h = image->h;
 	imgRect->w = image->w;
 
-	//Have the image show up with the origin in the middle
-	imgRect->x = 0 - (imgRect->w / 2);
-	imgRect->y = 0 - (imgRect->h / 2);
+	//Sets's object's location
+	imgRect->x = x;
+	imgRect->y = y;
 
 	if (isEnemyBullet) {
 		//Set the velocity in the x
@@ -56,11 +56,14 @@ void Bullet::Update() {
 }
 
 void Bullet::Draw() const {
-	//Have the scene/level create the surfaceToDrawTo and windowToUpdate variables so that each game object doesn't have to create new ones independently
-	SDL_Surface* surfaceToDrawTo = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getSurface();
+	//Only draw the bullet if it is considered "on screen"
+	if (isOnscreen) {
+		//Have the scene/level create the surfaceToDrawTo and windowToUpdate variables so that each game object doesn't have to create new ones independently
+		SDL_Surface* surfaceToDrawTo = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getSurface();
 
-	//Have the gameobject put itself on the screen
-	SDL_BlitSurface(image, NULL, surfaceToDrawTo, imgRect);
+		//Have the gameobject put itself on the screen
+		SDL_BlitSurface(image, NULL, surfaceToDrawTo, imgRect);
+	}
 }
 
 bool Bullet::Shutdown() {
@@ -70,18 +73,20 @@ bool Bullet::Shutdown() {
 
 void Bullet::Spawn(bool decider, int x_, int y_)
 {
-	//Have the bullet 'spawn' at the given x and y with the tag of enemy or player bullet
+	//Have the bullet 'spawn' at the given x and y with the tag of enemy or player bullet. Sets on screen to true
 	imgRect->x = x;
 	imgRect->y = y;
 
 	isEnemyBullet = decider;
+	isOnscreen = true;
 }
 
 void Bullet::Remove()
 {
-	//Have the bullet be 'despawned' off the map
+	//Have the bullet be 'despawned' off the map. Stop drawing this
 	imgRect->x = 10000000;
 	imgRect->y = 10000000;
+	isOnscreen = false;
 }
 
 SDL_Surface* Bullet::getImage() {
