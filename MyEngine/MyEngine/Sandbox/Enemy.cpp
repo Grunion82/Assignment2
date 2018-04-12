@@ -29,14 +29,13 @@ bool Enemy::Init() {
 }
 
 void Enemy::Update() {
-	//Update Coordinates
-	//imgRect->x += x;
-	//imgRect->y += y;
+	//Bounces between window sides
 	if (imgRect->x <= 5)
 		speed *= -1;
 	if (imgRect->x + imgRect->w == static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWidth() - 5)
 		speed *= -1;
 
+	//Update Coordinates
 	imgRect->x += speed;
 }
 
