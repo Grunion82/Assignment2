@@ -46,7 +46,8 @@ namespace core {
 				//SDL_Delay(2000);
 			}
 		}
-
+		//A Delightful Welcome message :D
+		SDL_ShowSimpleMessageBox(0, "Welcome!", "Welcome to our SDL Space Invaders Game!\nEnjoy!", window);
 		return initResult;
 	}
 
