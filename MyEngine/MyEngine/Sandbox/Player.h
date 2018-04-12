@@ -23,8 +23,8 @@ public:
 	void Draw() const override;
 	bool Shutdown() override;
 
-	SDL_Surface* getImage();
-	SDL_Rect getRect();
+	SDL_Surface* getImage() override;
+	SDL_Rect getRect() override;
 };
 
 #endif // PLAYER_H
