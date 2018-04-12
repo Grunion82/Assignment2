@@ -57,7 +57,6 @@ namespace core {
 	void Window::Draw() const {
 		//Fill the surface blue
 		SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0x00, 0x00, 0xFF));
-
 		//Update the surface
 		//SDL_UpdateWindowSurface(window);
 	}
