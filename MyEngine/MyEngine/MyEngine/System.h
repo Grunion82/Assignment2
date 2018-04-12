@@ -8,6 +8,7 @@ namespace core {
 	enum class SystemType : unsigned __int8 {
 		WINDOW,
 		INPUT,
+		COLLISION,
 
 		TOTAL_SYSTEMS
 	};
