@@ -1,30 +1,29 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef ENEMY_H
+#define ENEMY_H
 
 #include <SDL.h>
 #include <GameObject.h>
 
-class Player : public scene::GameObject
+class Enemy : public scene::GameObject
 {
-
 private:
-	__int8 lives;
-
 	//Image and its Rect variables for drawing
 	SDL_Surface * image;
 	SDL_Rect* imgRect;
 
+	int speed;
+
 public:
-	Player();
-	~Player();
+	Enemy();
+	~Enemy();
 
 	bool Init() override;
 	void Update() override;
 	void Draw() const override;
 	bool Shutdown() override;
 
-	SDL_Surface* getImage() override;
-	SDL_Rect getRect() override;
+	SDL_Surface* getImage();
+	SDL_Rect getRect();
 };
 
-#endif // PLAYER_H
+#endif // ENEMY_H
