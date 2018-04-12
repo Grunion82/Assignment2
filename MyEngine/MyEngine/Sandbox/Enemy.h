@@ -24,6 +24,14 @@ public:
 
 	SDL_Surface* getImage();
 	SDL_Rect getRect();
+
+	//Getters and setters for position
+	inline void setX(int x) { imgRect->x = x; }	
+	inline void setY(int y) { imgRect->y = y; }
+	inline int getX() { return imgRect->x; }
+	inline int getY() { return imgRect->y; }
+	inline void setSpeed(int _speed) { speed = _speed; }
+	inline int getSpeed() { return speed;  }
 };
 
 #endif // ENEMY_H

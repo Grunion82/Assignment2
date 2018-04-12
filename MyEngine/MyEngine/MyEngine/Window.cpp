@@ -3,7 +3,7 @@
 #include "Window.h"
 
 namespace core {
-	Window::Window() : System(SystemType::WINDOW), SCREEN_WIDTH(WINDOW_SCREEN_WIDTH), SCREEN_HEIGHT(WINDOW_SCREEN_HEIGHT), TITLE("Best Engine AF") {
+	Window::Window() : System(SystemType::WINDOW), SCREEN_WIDTH(WINDOW_SCREEN_WIDTH), SCREEN_HEIGHT(WINDOW_SCREEN_HEIGHT), TITLE("Space Invaders") {
 
 	}
 

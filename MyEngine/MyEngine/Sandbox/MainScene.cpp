@@ -8,6 +8,7 @@
 MainScene::MainScene() {
 	gameObjects.push_back(new Player());
 	gameObjects.push_back(new Enemy());
+	gameObjects.push_back(new Enemy());
 }
 
 
@@ -20,6 +21,11 @@ bool MainScene::Init() {
 		if (!go->Init())
 			return false;
 	}
+
+	dynamic_cast<Enemy*>(gameObjects[2])->setX(10);
+	dynamic_cast<Enemy*>(gameObjects[2])->setY(95);
+	dynamic_cast<Enemy*>(gameObjects[2])->setSpeed(1);
+
 	return true;
 }
 
