@@ -16,11 +16,11 @@ bool Bullet::Init() {
 	//Loads Image into variable
 	if (isEnemyBullet) {
 		//Load enemy bullet
-		image = SDL_LoadBMP("jetski.bmp");
+		image = SDL_LoadBMP("Sprites/enemy_bullet.bmp");
 	}
 	else {
 		//Load player bullet
-		image = SDL_LoadBMP("jetski.bmp");
+		image = SDL_LoadBMP("Sprites/player_bullet.bmp");
 	}
 
 	imgRect = new SDL_Rect;
@@ -68,11 +68,13 @@ bool Bullet::Shutdown() {
 	return true;
 }
 
-void Bullet::Spawn(int x_, int y_)
+void Bullet::Spawn(bool decider, int x_, int y_)
 {
-	//Have the bullet 'spawn' at the given x and y
+	//Have the bullet 'spawn' at the given x and y with the tag of enemy or player bullet
 	imgRect->x = x;
 	imgRect->y = y;
+
+	isEnemyBullet = decider;
 }
 
 void Bullet::Remove()

@@ -13,7 +13,7 @@ Enemy::~Enemy() {
 
 bool Enemy::Init() {
 	//Loads Image into variable
-	image = SDL_LoadBMP("enemy.bmp");
+	image = SDL_LoadBMP("Sprites/enemy.bmp");
 	imgRect = new SDL_Rect;
 	if (!image)
 		return false;

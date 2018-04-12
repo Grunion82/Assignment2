@@ -13,7 +13,7 @@ Player::~Player()
 
 bool Player::Init() {
 	//Loads Image into variable
-	image = SDL_LoadBMP("player.bmp");
+	image = SDL_LoadBMP("Sprites/player.bmp");
 	imgRect = new SDL_Rect;
 	if (!image)
 		return false;
