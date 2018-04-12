@@ -13,7 +13,7 @@ Player::~Player()
 
 bool Player::Init() {
 	//Loads Image into variable
-	image = SDL_LoadBMP("player.bmp");
+	image = SDL_LoadBMP("jetski.bmp");
 	imgRect = new SDL_Rect;
 	if (!image)
 		return false;
@@ -24,8 +24,6 @@ bool Player::Init() {
 	//Have the image show up with the origin in the middle
 	imgRect->x = 0 - (imgRect->w / 2);
 	imgRect->y = 0 - (imgRect->h / 2);
-
-	lives = 3;
 
 	return true;
 }

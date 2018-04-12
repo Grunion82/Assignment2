@@ -38,9 +38,6 @@ namespace core {
 
 		SDL_Window* getWindow();
 		SDL_Surface* getSurface();
-
-		inline int getWidth() { return SCREEN_WIDTH; }
-		inline int getHeight() { return SCREEN_HEIGHT; }
 	};
 }
 #endif // WINDOW_H

@@ -3,11 +3,9 @@
 
 #include "MainScene.h"
 #include "Player.h"
-#include "Enemy.h"
 
 MainScene::MainScene() {
 	gameObjects.push_back(new Player());
-	gameObjects.push_back(new Enemy());
 }
 
 
