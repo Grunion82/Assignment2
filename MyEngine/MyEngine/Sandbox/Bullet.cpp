@@ -53,6 +53,10 @@ bool Bullet::Init() {
 void Bullet::Update() {
 	//Update Coordinates
 	imgRect->y += yVelocity;
+	/*if (imgRect->y == 0)
+		delete this;
+	if (imgRect->y = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getHeight() - imgRect->h)
+		delete this;*/
 }
 
 void Bullet::Draw() const {

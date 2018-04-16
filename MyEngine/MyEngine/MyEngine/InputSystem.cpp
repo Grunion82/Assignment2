@@ -28,7 +28,7 @@ namespace core {
 				break;
 			case SDL_KEYDOWN:
 				//Adds the pressed button to a map, sets value at that key to true
-				printf("%d\n", e.key.repeat); //Observing the repeat variable from SDL_KeyEvent
+				//printf("%d\n", e.key.repeat); //Observing the repeat variable from SDL_KeyEvent
 				keys[e.key.keysym.sym] = true;
 				break; 
 			case SDL_KEYUP:
