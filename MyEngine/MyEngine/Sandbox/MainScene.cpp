@@ -33,7 +33,7 @@ bool MainScene::Init() {
 void MainScene::Update() {
 	//Adds a bullet to the gameObjects vector when space is pressed
 	core::InputSystem* inputSystem = static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>());
-	if (inputSystem->isKeyDown(SDLK_SPACE))
+	if (inputSystem->wasKeyPressed(SDLK_SPACE))
 		gameObjects.push_back(dynamic_cast<Player*>(gameObjects[0])->shoot());
 
 	for (scene::GameObject* go : gameObjects) {

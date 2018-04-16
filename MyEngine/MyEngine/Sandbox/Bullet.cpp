@@ -36,11 +36,11 @@ bool Bullet::Init() {
 
 	if (isEnemyBullet) {
 		//Set the velocity in the x
-		yVelocity = 10;
+		yVelocity = 1;
 	}
 	else {
 		//Set the velocity in the x
-		yVelocity = -10;
+		yVelocity = -1;
 	}
 
 	//Have the image be created at the given x and y

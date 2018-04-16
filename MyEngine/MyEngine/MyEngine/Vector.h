@@ -28,12 +28,12 @@ namespace  MATH {
 	/// but just in case
 	struct Vec2 {
 		float  x, y;
-		bool Vec2::operator == (const Vec2 &b) const = delete;
-		bool Vec2::operator != (const Vec2 &b) const = delete;
-		bool Vec2::operator <= (const Vec2 &b) const = delete;
-		bool Vec2::operator >= (const Vec2 &b) const = delete;
-		bool Vec2::operator >  (const Vec2 &b) const = delete;
-		bool Vec2::operator <  (const Vec2 &b) const = delete;
+		bool operator == (const Vec2 &b) const = delete;
+		bool operator != (const Vec2 &b) const = delete;
+		bool operator <= (const Vec2 &b) const = delete;
+		bool operator >= (const Vec2 &b) const = delete;
+		bool operator >  (const Vec2 &b) const = delete;
+		bool operator <  (const Vec2 &b) const = delete;
 
 		/// Just a little utility to populate the vector
 		inline void set(float _x, float _y) {
@@ -65,12 +65,12 @@ namespace  MATH {
 	struct Vec3 {
 		float  x,y,z;	///  Structures are default public!
 
-		bool Vec3::operator == (const Vec3 &b) const = delete;
-		bool Vec3::operator != (const Vec3 &b) const = delete;
-		bool Vec3::operator <= (const Vec3 &b) const = delete;
-		bool Vec3::operator >= (const Vec3 &b) const = delete;
-		bool Vec3::operator >  (const Vec3 &b) const = delete;
-		bool Vec3::operator <  (const Vec3 &b) const = delete;
+		bool operator == (const Vec3 &b) const = delete;
+		bool operator != (const Vec3 &b) const = delete;
+		bool operator <= (const Vec3 &b) const = delete;
+		bool operator >= (const Vec3 &b) const = delete;
+		bool operator >  (const Vec3 &b) const = delete;
+		bool operator <  (const Vec3 &b) const = delete;
 
 
 		/// Just a little utility to populate a vector

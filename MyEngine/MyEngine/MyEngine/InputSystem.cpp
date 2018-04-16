@@ -19,6 +19,9 @@ namespace core {
 	}
 
 	void InputSystem::Update() {
+
+		oldKeys = keys;
+
 		SDL_Event e;
 				
 		while (SDL_PollEvent(&e) != 0) {
@@ -60,5 +63,36 @@ namespace core {
 		}
 
 		return false;
+	}
+
+	bool InputSystem::isKeyUp(unsigned int key) {
+
+		auto up = keys.find(key);
+
+		if (up != keys.end())
+			return !keys[key]; //Returns the opposite boolean
+
+		//If key can't be found, it will be up by default
+		return true;
+	}
+
+	bool InputSystem::wasKeyPressed(unsigned int key) {
+
+		auto was = oldKeys.find(key);
+
+		if (was != oldKeys.end())
+			return !oldKeys[key] && keys[key];
+
+		return keys[key];
+	}
+
+	bool InputSystem::wasKeyReleased(unsigned int key) {
+
+		auto was = oldKeys.find(key);
+
+		if (was != oldKeys.end())
+			return oldKeys[key] && !keys[key];
+		else
+			return false;
 	}
 }
