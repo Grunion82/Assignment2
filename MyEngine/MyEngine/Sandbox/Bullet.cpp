@@ -23,6 +23,8 @@ bool Bullet::Init() {
 		image = SDL_LoadBMP("Sprites/player_bullet.bmp");
 	}
 
+	enabled = false;
+
 	imgRect = new SDL_Rect;
 	if (!image)
 		return false;
@@ -52,7 +54,9 @@ bool Bullet::Init() {
 
 void Bullet::Update() {
 	//Update Coordinates
-	imgRect->y += yVelocity;
+	if (enabled) {
+		imgRect->y += yVelocity; //If the bullet is enabled then update position
+	}
 	/*if (imgRect->y == 0)
 		delete this;
 	if (imgRect->y = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getHeight() - imgRect->h)
@@ -60,8 +64,8 @@ void Bullet::Update() {
 }
 
 void Bullet::Draw() const {
-	//Only draw the bullet if it is considered "on screen"
-	if (isOnscreen) {
+	//Only draw the bullet if it is considered "on screen" and is enabled
+	if (isOnscreen && enabled) {
 		//Have the scene/level create the surfaceToDrawTo and windowToUpdate variables so that each game object doesn't have to create new ones independently
 		SDL_Surface* surfaceToDrawTo = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getSurface();
 
@@ -83,14 +87,14 @@ void Bullet::Spawn(bool decider, int x_, int y_)
 
 	isEnemyBullet = decider;
 	isOnscreen = true;
+	enabled = true;
 }
 
 void Bullet::Remove()
 {
 	//Have the bullet be 'despawned' off the map. Stop drawing this
-	imgRect->x = 10000000;
-	imgRect->y = 10000000;
 	isOnscreen = false;
+	enabled = false;
 }
 
 SDL_Surface* Bullet::getImage() {

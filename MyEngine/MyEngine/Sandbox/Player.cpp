@@ -90,12 +90,9 @@ SDL_Rect Player::getRect() {
 	return *imgRect;
 }
 
-Bullet* Player::shoot() {
+void Player::shoot(Bullet* bullet) {
 
 	//Instansiates a new player bullet
-	Bullet* b = new Bullet(false, imgRect->x + imgRect->w / 2, imgRect->y, true);
-	b->Init();
-
-	return b;
+	bullet->Spawn(false, imgRect->x + imgRect->w / 2, imgRect->y);
 
 }

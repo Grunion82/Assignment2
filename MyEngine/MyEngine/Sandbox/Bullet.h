@@ -31,5 +31,6 @@ public:
 
 	void shoot(class Bullet* b);
 	bool isEnemyBullet;
+	bool enabled;
 };
 

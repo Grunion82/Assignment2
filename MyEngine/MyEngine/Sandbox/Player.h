@@ -26,7 +26,7 @@ public:
 	SDL_Surface* getImage() override;
 	SDL_Rect getRect() override;
 
-	class Bullet* shoot();
+	void shoot(class Bullet* bullet);
 };
 
 #endif // PLAYER_H
