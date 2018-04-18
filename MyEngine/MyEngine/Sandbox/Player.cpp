@@ -23,7 +23,7 @@ bool Player::Init() {
 	imgRect->w = image->w;
 
 	//Have the image show up with the origin in the middle
-	imgRect->x = (static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWidth() / 2) - imgRect->w;
+	imgRect->x = (static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWidth() / 10) - imgRect->w;
 	imgRect->y = 600 - imgRect->h;
 
 	lives = 3;
@@ -39,13 +39,13 @@ void Player::Update() {
 	core::InputSystem* inputSystem = static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>());
 
 	//Moves left
-	if (inputSystem->isKeyDown(SDLK_a)) {
-		x = -1;
+	if (inputSystem->isKeyDown(SDLK_w)) {
+		y = -1;
 	}
 
 	//Moves right
-	if (inputSystem->isKeyDown(SDLK_d)) {
-		x = 1;
+	if (inputSystem->isKeyDown(SDLK_s) && ((imgRect->y + imgRect->h) < static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getHeight())) {
+		y = 1;
 	}
 
 	//Space bar shoots bullet
@@ -53,14 +53,14 @@ void Player::Update() {
 
 	///Disabled Up and Down movement
 	//Moves up
-	/*if (inputSystem->isKeyDown(SDLK_w)) {
-		y = -1;
+	if (inputSystem->isKeyDown(SDLK_a)) {
+		x = -1;
 	}
 
 	//Moves down
-	if (inputSystem->isKeyDown(SDLK_s)) {
-		y = 1;
-	}*/
+	if (inputSystem->isKeyDown(SDLK_d) && ((imgRect->x + imgRect->w) < static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWidth() / 2)) {
+		x = 1;
+	}
 
 	//Update Coordinates
 	imgRect->x += x;
@@ -92,7 +92,7 @@ SDL_Rect Player::getRect() {
 
 void Player::shoot(Bullet* bullet) {
 
-	//Instansiates a new player bullet
-	bullet->Spawn(false, imgRect->x + imgRect->w / 2, imgRect->y);
+	//Spawn a new player bullet
+	bullet->Spawn(imgRect->x + imgRect->w, (imgRect->h / 2) + imgRect->y);
 
 }

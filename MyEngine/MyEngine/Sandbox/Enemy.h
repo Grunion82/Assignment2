@@ -32,6 +32,10 @@ public:
 	inline int getY() { return imgRect->y; }
 	inline void setSpeed(int _speed) { speed = _speed; }
 	inline int getSpeed() { return speed;  }
+
+	inline void spawn(int x, int y) { imgRect->x = x; imgRect->y = y; enabled = true; };
+
+	bool enabled;
 };
 
 #endif // ENEMY_H

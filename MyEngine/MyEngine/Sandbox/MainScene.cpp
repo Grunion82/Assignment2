@@ -21,13 +21,13 @@ bool MainScene::Init() {
 	}
 
 	for (int i = 0; i < 20; ++i) {
-		gameObjects.push_back(new Bullet(true, 1, 1, true)); //Spawns 20 player bullets at position 1, 1 and tell them that they are on screen.
+		gameObjects.push_back(new Bullet(false, 1, 1)); //Spawns 20 player bullets at position 1, 1 and tell them that they are on screen.
 		playerBullets[i] = dynamic_cast<Bullet*>(gameObjects[i + 1]); //Copies the pointers into an array for easier usage
 		playerBullets[i]->Init(); //Initialize the object within the pointer
 	}
 
 	for (int i = 0; i < 20; ++i) {
-		gameObjects.push_back(new Bullet(false, 1, 1, true)); //Spawns 20 enemy bullets at position 1, 1 and tell them that they are on screen.
+		gameObjects.push_back(new Bullet(true, 1, 1)); //Spawns 20 enemy bullets at position 1, 1 and tell them that they are on screen.
 		enemyBullets[i] = dynamic_cast<Bullet*>(gameObjects[i + 21]); //Copies the pointers into an array for easier usage
 		enemyBullets[i]->Init(); //Initialize the object within the pointer
 	}

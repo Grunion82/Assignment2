@@ -3,7 +3,7 @@
 
 
 //Sets isOnscreen to true for testing bullet spawning
-Bullet::Bullet(bool decider, int x_, int y_, bool onScreen) : isEnemyBullet(decider), x(x_), y(y_), isOnscreen(true)
+Bullet::Bullet(bool decider, int x_, int y_) : isEnemyBullet(decider), x(x_), y(y_)
 {
 }
 
@@ -38,11 +38,11 @@ bool Bullet::Init() {
 
 	if (isEnemyBullet) {
 		//Set the velocity in the x
-		yVelocity = 1;
+		xVelocity = -1;
 	}
 	else {
 		//Set the velocity in the x
-		yVelocity = -1;
+		xVelocity = 1;
 	}
 
 	//Have the image be created at the given x and y
@@ -55,7 +55,10 @@ bool Bullet::Init() {
 void Bullet::Update() {
 	//Update Coordinates
 	if (enabled) {
-		imgRect->y += yVelocity; //If the bullet is enabled then update position
+		imgRect->x += xVelocity; //If the bullet is enabled then update position
+		if (imgRect->x > 1210 || imgRect ->x <= 10 ) {
+			enabled = false;
+		}
 	}
 	/*if (imgRect->y == 0)
 		delete this;
@@ -65,7 +68,7 @@ void Bullet::Update() {
 
 void Bullet::Draw() const {
 	//Only draw the bullet if it is considered "on screen" and is enabled
-	if (isOnscreen && enabled) {
+	if (enabled) {
 		//Have the scene/level create the surfaceToDrawTo and windowToUpdate variables so that each game object doesn't have to create new ones independently
 		SDL_Surface* surfaceToDrawTo = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getSurface();
 
@@ -79,14 +82,11 @@ bool Bullet::Shutdown() {
 	return true;
 }
 
-void Bullet::Spawn(bool decider, int x_, int y_)
+void Bullet::Spawn(int x_, int y_)
 {
 	//Have the bullet 'spawn' at the given x and y with the tag of enemy or player bullet. Sets on screen to true
-	imgRect->x = x;
-	imgRect->y = y;
-
-	isEnemyBullet = decider;
-	isOnscreen = true;
+	imgRect->x = x_;
+	imgRect->y = y_;
 	enabled = true;
 }
 

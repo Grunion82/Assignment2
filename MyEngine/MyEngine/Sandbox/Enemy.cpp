@@ -25,28 +25,39 @@ bool Enemy::Init() {
 	imgRect->x = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWidth() - imgRect->w - 10;// 0 - (imgRect->w / 2);
 	imgRect->y = 10;// -(imgRect->h / 2);
 
+	enabled = false; //Set the enemy to not be enabled when starting
+
 	return true;
 }
 
 void Enemy::Update() {
-	//Update Coordinates
-	//imgRect->x += x;
-	//imgRect->y += y;
-	if (imgRect->x <= 5)
-		speed *= -1;
-	if (imgRect->x + imgRect->w == static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWidth() - 5)
-		speed *= -1;
+	if (enabled) { //If the enemy is enabled then update it
+		if (imgRect->y <= 5)
+			speed *= -1;
+		if (imgRect->y + imgRect->h == static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getHeight() - 5)
+			speed *= -1;
 
-	imgRect->x += speed;
+		--imgRect->x;
+
+		imgRect->y += speed;
+
+		if (imgRect->x <= 10) {
+			enabled = false;
+		}
+	}
 }
 
 void Enemy::Draw() const {
-	//Have the scene/level create the surfaceToDrawTo and windowToUpdate variables so that each game object doesn't have to create new ones independently
-	SDL_Surface* surfaceToDrawTo = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getSurface();
+	if (enabled) { //If the enemy is enabled then draw it
+		//Have the scene/level create the surfaceToDrawTo and windowToUpdate variables so that each game object doesn't have to create new ones independently
+		SDL_Surface* surfaceToDrawTo = static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getSurface();
 
-	//Have the gameobject put itself on the screen
-	SDL_BlitSurface(image, NULL, surfaceToDrawTo, imgRect);
+		//Have the gameobject put itself on the screen
+		SDL_BlitSurface(image, NULL, surfaceToDrawTo, imgRect);
+	}
 }
+
+
 
 bool Enemy::Shutdown() {
 

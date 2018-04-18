@@ -8,6 +8,7 @@ private:
 
 	Enemy* enemies[20];
 	Bullet* enemyBullets[20];
+	int enemySpawnTime, enemySpawnCount, rando3, rando4;
 
 public:
 	EnemyManager();
