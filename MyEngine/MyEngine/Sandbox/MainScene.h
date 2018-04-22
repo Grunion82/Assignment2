@@ -23,6 +23,8 @@ private:
 
 	EnemyManager* enemyManager;
 
+	int numEnemies, numEnemyBullets, numPlayerBullets;
+
 public:
 	MainScene();
 	~MainScene();
@@ -31,6 +33,8 @@ public:
 	void Update() override;
 	void Draw() const override;
 	bool Shutdown() override;
+
+	void Collision();
 };
 
 #endif //MAINSCENE_H

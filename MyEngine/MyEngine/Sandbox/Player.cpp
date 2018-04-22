@@ -51,7 +51,6 @@ void Player::Update() {
 	//Space bar shoots bullet
 	//if (inputSystem->isKeyDown(SDLK_SPACE)) {}
 
-	///Disabled Up and Down movement
 	//Moves up
 	if (inputSystem->isKeyDown(SDLK_a)) {
 		x = -1;
