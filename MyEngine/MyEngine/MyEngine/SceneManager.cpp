@@ -1,10 +1,12 @@
 #include "SceneManager.h"
 
+#include <SDL.h>
+
 namespace core {
 	SceneManager* SceneManager::m_instance = nullptr;
 
 	SceneManager::SceneManager() {
-
+		timer = Timer();
 	}
 
 
@@ -17,13 +19,18 @@ namespace core {
 			if (!sce->Init())
 				return false;
 		}
+		timer.Start();
 		return true;
 	}
 
 	void SceneManager::Update() {
+		//Updates time
+		timer.UpdateFrameTicks();
 		for (scene::Scene* sce : scenes) {
-			sce->Update();
+			sce->Update(timer.GetDeltaTime());
 		}
+		//Caps the framerate at 60
+		SDL_Delay(timer.GetSleepTime(60));
 	}
 
 	void SceneManager::Draw() const {

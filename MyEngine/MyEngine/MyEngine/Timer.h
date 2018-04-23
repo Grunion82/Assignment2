@@ -5,6 +5,7 @@ namespace core {
 	class Timer
 	{
 	private:
+		//"Ticks" keeps track of the amount of time elapsed
 		unsigned int prevTicks;
 		unsigned int currTicks;
 

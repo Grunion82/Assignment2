@@ -18,7 +18,7 @@ public:
 	~Enemy();
 
 	bool Init() override;
-	void Update() override;
+	void Update(float Deltatime) override;
 	void Draw() const override;
 	bool Shutdown() override;
 

@@ -12,11 +12,13 @@ namespace core {
 	}
 
 	void Timer::Start() {
+		//Sets both to the current tick value
 		prevTicks = SDL_GetTicks();
 		currTicks = SDL_GetTicks();
 	}
 
 	void Timer::UpdateFrameTicks() {
+		//Updates the ticks
 		prevTicks = currTicks;
 		currTicks = SDL_GetTicks();
 	}
@@ -26,6 +28,7 @@ namespace core {
 	}
 
 	unsigned int Timer::GetSleepTime(const unsigned int fps) const {
+		//Caps the framerate at the passed FPS
 		unsigned int milliSecsPerFrame = 1000 / fps;
 		if (milliSecsPerFrame == 0) {
 			return 0;

@@ -14,7 +14,7 @@ namespace scene {
 		return true;
 	}
 
-	void Scene::Update() {
+	void Scene::Update(float Deltatime) {
 
 	}
 

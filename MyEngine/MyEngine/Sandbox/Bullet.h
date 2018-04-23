@@ -20,7 +20,7 @@ public:
 	~Bullet();
 
 	bool Init() override;
-	void Update() override;
+	void Update(float Deltatime) override;
 	void Draw() const override;
 	bool Shutdown() override;
 	void Spawn(int x_, int y_);

@@ -1,3 +1,6 @@
+#ifndef ENEMYMANAGER_H
+#define ENEMYMANAGER_H
+
 
 #include "Enemy.h"
 #include "Bullet.h"
@@ -18,3 +21,4 @@ public:
 	void Update();
 };
 
+#endif // ENEMYMANAGER_H

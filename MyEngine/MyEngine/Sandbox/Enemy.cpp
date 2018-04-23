@@ -30,7 +30,7 @@ bool Enemy::Init() {
 	return true;
 }
 
-void Enemy::Update() {
+void Enemy::Update(float Deltatime) {
 	if (enabled) { //If the enemy is enabled then update it
 		if (imgRect->y <= 5)
 			speed *= -1;

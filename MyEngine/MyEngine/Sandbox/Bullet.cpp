@@ -52,7 +52,7 @@ bool Bullet::Init() {
 	return true;
 }
 
-void Bullet::Update() {
+void Bullet::Update(float Deltatime) {
 	//Update Coordinates
 	if (enabled) {
 		imgRect->x += xVelocity; //If the bullet is enabled then update position

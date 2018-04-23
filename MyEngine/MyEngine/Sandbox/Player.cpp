@@ -31,7 +31,7 @@ bool Player::Init() {
 	return true;
 }
 
-void Player::Update() {
+void Player::Update(float Deltatime) {
 
 	int x = 0, y = 0;
 

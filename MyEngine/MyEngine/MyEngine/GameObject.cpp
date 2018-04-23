@@ -15,7 +15,7 @@ namespace scene {
 		return true;
 	}
 
-	void GameObject::Update() {
+	void GameObject::Update(float Deltatime) {
 
 	}
 

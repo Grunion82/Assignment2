@@ -46,7 +46,7 @@ bool MainScene::Init() {
 	return true;
 }
 
-void MainScene::Update() {
+void MainScene::Update(float Deltatime) {
 	//Adds a bullet to the gameObjects vector when space is pressed
 	core::InputSystem* inputSystem = static_cast<core::InputSystem*>(core::SystemManager::getInstance()->getSystem<core::InputSystem>());
 	if (inputSystem->wasKeyPressed(SDLK_SPACE)) {
@@ -59,7 +59,7 @@ void MainScene::Update() {
 	}
 
 	for (scene::GameObject* go : gameObjects) {
-		go->Update();
+		go->Update(Deltatime);
 	}
 
 	Collision();

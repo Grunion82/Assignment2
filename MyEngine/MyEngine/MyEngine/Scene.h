@@ -12,7 +12,7 @@ namespace scene {
 		virtual ~Scene();
 
 		virtual bool Init();
-		virtual void Update();
+		virtual void Update(float Deltatime);
 		virtual void Draw() const;
 		virtual bool Shutdown();
 	};

@@ -5,6 +5,7 @@
 
 #include "Manager.h"
 #include "Scene.h"
+#include "Timer.h"
 
 
 namespace core {
@@ -12,6 +13,7 @@ namespace core {
 	{
 	private:
 		std::vector<scene::Scene*> scenes;
+		Timer timer;
 		SceneManager();
 
 		static SceneManager* m_instance;
