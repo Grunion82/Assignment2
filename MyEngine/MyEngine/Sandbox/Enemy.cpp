@@ -2,8 +2,8 @@
 #include <SystemManager.h>
 
 
-Enemy::Enemy() : speed(1) {
-
+Enemy::Enemy(Bullet* bullets[20]) : speed(10) {
+	memcpy(enemyBullets, bullets, sizeof(enemyBullets));
 }
 
 
@@ -27,22 +27,37 @@ bool Enemy::Init() {
 
 	enabled = false; //Set the enemy to not be enabled when starting
 
+	bulletSpawnTime = 0;
+
 	return true;
 }
 
 void Enemy::Update(float Deltatime) {
 	if (enabled) { //If the enemy is enabled then update it
-		if (imgRect->y <= 5)
+		bulletSpawnTime -= Deltatime;
+
+		if (imgRect->y <= 5.0f)
 			speed *= -1;
-		if (imgRect->y + imgRect->h == static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getHeight() - 5)
+		if (imgRect->y + imgRect->h >= static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getHeight() - 5)
 			speed *= -1;
 
-		--imgRect->x;
+		imgRect->x -= 10;
 
 		imgRect->y += speed;
 
 		if (imgRect->x <= 10) {
 			enabled = false;
+		}
+
+		if (bulletSpawnTime <= 0) {
+			bulletSpawnTime = 1;
+
+			for (int i = 0; i < 20; ++i) { //Go through all of the possible playerBullets
+				if (enemyBullets[i]->enabled == false) { //Check for any that aren't enabled
+					enemyBullets[i]->Spawn(imgRect->x + imgRect->w, (imgRect->h / 2) + imgRect->y);
+					break;
+				}
+			}
 		}
 	}
 }

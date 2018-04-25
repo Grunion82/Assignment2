@@ -40,12 +40,12 @@ void Player::Update(float Deltatime) {
 
 	//Moves left
 	if (inputSystem->isKeyDown(SDLK_w)) {
-		y = -1;
+		y = -10;
 	}
 
 	//Moves right
 	if (inputSystem->isKeyDown(SDLK_s) && ((imgRect->y + imgRect->h) < static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getHeight())) {
-		y = 1;
+		y = 10;
 	}
 
 	//Space bar shoots bullet
@@ -53,12 +53,12 @@ void Player::Update(float Deltatime) {
 
 	//Moves up
 	if (inputSystem->isKeyDown(SDLK_a)) {
-		x = -1;
+		x = -10;
 	}
 
 	//Moves down
 	if (inputSystem->isKeyDown(SDLK_d) && ((imgRect->x + imgRect->w) < static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWidth() / 2)) {
-		x = 1;
+		x = 10;
 	}
 
 	//Update Coordinates

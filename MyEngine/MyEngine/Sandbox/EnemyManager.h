@@ -11,14 +11,15 @@ private:
 
 	Enemy* enemies[20];
 	Bullet* enemyBullets[20];
-	int enemySpawnTime, enemySpawnCount, rando3, rando4;
+	int enemySpawnCount;
+	float enemySpawnTime;
 
 public:
 	EnemyManager();
 	~EnemyManager();
 
 	void Init(Enemy* _enemies[20], Bullet* _enemyBullets[20]);
-	void Update();
+	void Update(float Deltatime);
 };
 
 #endif // ENEMYMANAGER_H

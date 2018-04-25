@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include <GameObject.h>
+#include "Bullet.h"
 
 class Enemy : public scene::GameObject
 {
@@ -11,10 +12,14 @@ private:
 	SDL_Surface * image;
 	SDL_Rect* imgRect;
 
+	float bulletSpawnTime; //Time until the enemy spawns a bullet next
+
+	Bullet* enemyBullets[20];
+
 	int speed;
 
 public:
-	Enemy();
+	Enemy(Bullet* bullets[20]);
 	~Enemy();
 
 	bool Init() override;

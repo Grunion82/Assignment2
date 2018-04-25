@@ -23,16 +23,16 @@ bool MainScene::Init() {
 			return false;
 	}
 
-	for (int i = 0; i < numEnemies; ++i) {
-		gameObjects.push_back(new Enemy()); //Spawns 20 enemies
-		enemies[i] = dynamic_cast<Enemy*>(gameObjects[i + 1]); //Copies the pointers into an array for easier usage
-		enemies[i]->Init(); //Initialize the object within the pointer
-	}
-
 	for (int i = 0; i < numEnemyBullets; ++i) {
 		gameObjects.push_back(new Bullet(true, 1, 1)); //Spawns 20 enemy bullets at position 1, 1 and tell them that they are on screen.
-		enemyBullets[i] = dynamic_cast<Bullet*>(gameObjects[i + 21]); //Copies the pointers into an array for easier usage
+		enemyBullets[i] = dynamic_cast<Bullet*>(gameObjects[i + 1]); //Copies the pointers into an array for easier usage
 		enemyBullets[i]->Init(); //Initialize the object within the pointer
+	}
+
+	for (int i = 0; i < numEnemies; ++i) {
+		gameObjects.push_back(new Enemy(enemyBullets)); //Spawns 20 enemies
+		enemies[i] = dynamic_cast<Enemy*>(gameObjects[i + 21]); //Copies the pointers into an array for easier usage
+		enemies[i]->Init(); //Initialize the object within the pointer
 	}
 
 	for (int i = 0; i < numPlayerBullets; ++i) {
@@ -65,7 +65,7 @@ void MainScene::Update(float Deltatime) {
 	Collision();
 
 	//Update enemyManager
-	enemyManager->Update();
+	enemyManager->Update(Deltatime);
 }
 
 void MainScene::Draw() const {
