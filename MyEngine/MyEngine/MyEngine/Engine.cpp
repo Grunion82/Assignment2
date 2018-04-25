@@ -39,6 +39,8 @@ namespace core {
 		}
 
 		isRunning = static_cast<SystemManager*>(SystemManager::getInstance())->getSystem<InputSystem>()->isKeyDown(SDLK_ESCAPE);
+		if(!isRunning)
+			isRunning = static_cast<SystemManager*>(SystemManager::getInstance())->getSystem<InputSystem>()->quitRequested;
 	}
 
 	void Engine::Draw() const {

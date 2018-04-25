@@ -26,8 +26,6 @@ bool Player::Init() {
 	imgRect->x = (static_cast<core::Window*>(core::SystemManager::getInstance()->getSystem<core::Window>())->getWidth() / 10) - imgRect->w;
 	imgRect->y = 600 - imgRect->h;
 
-	lives = 3;
-
 	return true;
 }
 

@@ -9,7 +9,6 @@ namespace core {
 	class InputSystem : public System
 	{
 	private:
-		bool quitRequested;
 
 		//Map for holding key's and if they are pressed or not (true/false)
 		std::map<unsigned int, bool> keys;
@@ -26,7 +25,7 @@ namespace core {
 		void Draw() const override;
 		bool Shutdown() override;
 
-		inline bool QuitRequested() const { return quitRequested; }
+		bool quitRequested;
 
 		//Checks for a key press
 		bool isKeyDown(unsigned int key);

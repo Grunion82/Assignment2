@@ -8,8 +8,6 @@ class Player : public scene::GameObject
 {
 
 private:
-	__int8 lives;
-
 	//Image and its Rect variables for drawing
 	SDL_Surface * image;
 	SDL_Rect* imgRect;

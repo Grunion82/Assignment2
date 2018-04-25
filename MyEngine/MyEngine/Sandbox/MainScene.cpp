@@ -10,6 +10,7 @@ MainScene::MainScene() {
 	numEnemies = 20;
 	numEnemyBullets = 20;
 	numPlayerBullets = 20;
+	gameTime = 30;
 }
 
 
@@ -66,6 +67,14 @@ void MainScene::Update(float Deltatime) {
 
 	//Update enemyManager
 	enemyManager->Update(Deltatime);
+
+	gameTime -= Deltatime;
+	printf("%f seconds left", gameTime);
+	if (gameTime <= 0.0f) {
+		printf("You've survived the attack!\nYou win!\n");
+		static_cast<core::SystemManager*>(core::SystemManager::getInstance())->getSystem<core::InputSystem>()->quitRequested = true;
+	}
+
 }
 
 void MainScene::Draw() const {
@@ -97,13 +106,18 @@ void MainScene::Collision()
 			if (imgRect1->x <= imgRect2->x + imgRect2->w && imgRect1->x + imgRect1->w >= imgRect2->x) { //Checks to see if the gameObject1s are overlapping in the X
 				if (imgRect1->y + imgRect1->h >= imgRect2->y && imgRect1->y <= imgRect2->y + imgRect2->h) { //Makes sure that the gameObject1s are also overlapping in the Y
 					enemies[i]->enabled = false;
+					printf("You've been destroyed!\nGame Over!\n");
+					static_cast<core::SystemManager*>(core::SystemManager::getInstance())->getSystem<core::InputSystem>()->quitRequested = true;
 				}
 			}
 
 			//Check gameObject1 Collision Top/Bottom
 			if (imgRect1->y + imgRect1->h >= imgRect2->y && imgRect1->y <= imgRect2->y + imgRect2->h) { //Same as above, just in the opposite order to check for collisions from above/below
 				if (imgRect1->x <= imgRect2->x + imgRect2->w && imgRect1->x + imgRect1->w >= imgRect2->x) {
-					enemies[i]->enabled = false;
+					enemies[i]->enabled = false; 
+					printf("You've been destroyed!\nGame Over!\n");
+					static_cast<core::SystemManager*>(core::SystemManager::getInstance())->getSystem<core::InputSystem>()->quitRequested = true;
+
 				}
 			}
 		}
@@ -115,7 +129,10 @@ void MainScene::Collision()
 			//Check gameObject1 Collision Left/Right
 			if (imgRect1->x <= imgRect2->x + imgRect2->w && imgRect1->x + imgRect1->w >= imgRect2->x) { //Checks to see if the gameObject1s are overlapping in the X
 				if (imgRect1->y + imgRect1->h >= imgRect2->y && imgRect1->y <= imgRect2->y + imgRect2->h) { //Makes sure that the gameObject1s are also overlapping in the Y
-					enemyBullets[i]->enabled = false;
+					enemyBullets[i]->enabled = false; 
+					//printf("You've been destroyed!\nGame Over!\n");
+					static_cast<core::SystemManager*>(core::SystemManager::getInstance())->getSystem<core::InputSystem>()->quitRequested = true;
+
 				}
 			}
 
@@ -123,6 +140,9 @@ void MainScene::Collision()
 			if (imgRect1->y + imgRect1->h >= imgRect2->y && imgRect1->y <= imgRect2->y + imgRect2->h) { //Same as above, just in the opposite order to check for collisions from above/below
 				if (imgRect1->x <= imgRect2->x + imgRect2->w && imgRect1->x + imgRect1->w >= imgRect2->x) {
 					enemyBullets[i]->enabled = false;
+					//printf("You've been destroyed!\nGame Over!\n");
+					static_cast<core::SystemManager*>(core::SystemManager::getInstance())->getSystem<core::InputSystem>()->quitRequested = true;
+
 				}
 			}
 		}

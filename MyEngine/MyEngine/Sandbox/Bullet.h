@@ -29,7 +29,6 @@ public:
 	SDL_Surface* getImage() override;
 	SDL_Rect getRect() override;
 
-	void shoot(class Bullet* b);
 	bool isEnemyBullet;
 	bool enabled;
 };

@@ -13,7 +13,6 @@ int main(int argc, char* argv[]) {
 	if (e.Init() == 0)
 		return e.Run();
 	
-
 	//getchar();
 	return 0;
 }

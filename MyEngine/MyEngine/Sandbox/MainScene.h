@@ -24,6 +24,7 @@ private:
 	EnemyManager* enemyManager;
 
 	int numEnemies, numEnemyBullets, numPlayerBullets;
+	float gameTime; // In seconds
 
 public:
 	MainScene();
