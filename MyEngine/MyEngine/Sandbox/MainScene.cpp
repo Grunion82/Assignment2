@@ -69,7 +69,7 @@ void MainScene::Update(float Deltatime) {
 	enemyManager->Update(Deltatime);
 
 	gameTime -= Deltatime;
-	printf("%f seconds left", gameTime);
+	printf("%f seconds left\n", gameTime);
 	if (gameTime <= 0.0f) {
 		printf("You've survived the attack!\nYou win!\n");
 		static_cast<core::SystemManager*>(core::SystemManager::getInstance())->getSystem<core::InputSystem>()->quitRequested = true;
